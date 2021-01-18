@@ -1,15 +1,21 @@
 .navbar
   display: flex
   justify-content: space-between
+  &__logo
+    display: flex
   &__nav
     display: flex
     list-style: none
+
+  .nav-item
+    display: flex
+    align-items: center
+    cursor: pointer
 
   .nav-link
     font-family: $main-font
     text-decoration: none
     font-size: 12px
-    line-height: 40px
     letter-spacing: 1px
     text-transform: uppercase
     color: #2B2B2B
@@ -21,3 +27,47 @@
 
   .nav-item .nav-link
     padding: 12px 30px
+
+.navbar-dark-s
+  padding-bottom: 51px
+  background: linear-gradient(180deg, #090810 0%, #171236 100%)
+  .nav-link
+    font-family: $main-font
+    font-size: 12px
+    letter-spacing: 1px
+    text-transform: uppercase
+    color: #FFFFFF
+  .nav-item .router-link-active
+    background: #349A89
+    border-radius: 4px
+    color: #FFFFFF
+  .nav-item-user
+    margin-right: 25px
+    font-family: $main-font
+    font-size: 12px
+    line-height: 40px
+    letter-spacing: 1px
+    text-transform: uppercase
+    color: #349A89
+
+.navbar-dark
+  background: linear-gradient(180deg, #090810 0%, #171236 100%)
+  .nav-link
+    font-family: $main-font
+    font-size: 12px
+    letter-spacing: 1px
+    text-transform: uppercase
+    color: #FFFFFF
+  .nav-item .router-link-active
+    background: #349A89
+    border-radius: 4px
+    color: #FFFFFF
+  .nav-item-user
+    margin-right: 25px
+    font-family: $main-font
+    font-size: 12px
+    line-height: 40px
+    letter-spacing: 1px
+    text-transform: uppercase
+    color: #349A89
+

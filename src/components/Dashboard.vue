@@ -1,19 +1,7 @@
 <template>
   <div class="container">
     <div class="card-wrapper">
-      <div v-for="post in posts" :key="post.title" class="card">
-        <div class="card__inner">
 
-          <img :src="post.imageUrl" class="card__img">
-          <span class="card__name">{{ post.price }}</span>
-          <span class="card__price">${{ post.title }}</span>
-        </div>
-        <div class="card__descr">
-
-        </div>
-
-
-      </div>
     </div>
   </div>
 </template>
@@ -31,7 +19,7 @@ export default {
     }),
   },
   created () {
-    this.$store.dispatch('loadPosts');
+    //this.$store.dispatch('loadPosts');
   }
 };
 </script>

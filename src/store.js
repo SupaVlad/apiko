@@ -7,18 +7,18 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     loadedPosts: [
-      {
-        id: 'afajfjadfaadfa323',
-        title: 'title',
-        description: 'some description',
-        price: '222$',
-      },
-      {
-        id: 'afajfjadfdasdas3',
-        title: 'title2',
-        description: 'some description2',
-        price: '242$',
-      }
+      // {
+      //   id: 'afajfjadfaadfa323',
+      //   title: 'title',
+      //   description: 'some description',
+      //   price: '222$',
+      // },
+      // {
+      //   id: 'afajfjadfdasdas3',
+      //   title: 'title2',
+      //   description: 'some description2',
+      //   price: '242$',
+      // }
     ],
     user: {
       loggedIn: false,
@@ -110,7 +110,7 @@ export default new Vuex.Store({
               }
           )
     },
-    createPost ({commit, getters}, payload) {
+    createPost ({commit}, payload) {
       const post = {
         title: payload.title,
         location: payload.location,
@@ -148,7 +148,7 @@ export default new Vuex.Store({
             console.log(imageUrl)
           })
           .catch((error) => {
-            console.log(error)
+            console.error(error)
           })
       // Reach out to firebase and store it
     },

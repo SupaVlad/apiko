@@ -1,5 +1,7 @@
 .card-wrapper
   display: flex
+  flex-wrap: wrap
+  justify-content: center
 .card
   margin-right: 6px
   &__inner
@@ -29,3 +31,20 @@
     font-size: 18px
     line-height: 21px
     color: #101010
+  &__wrapper
+    display: flex
+    justify-content: center
+    margin-top: 34px
+    max-width: 1136px
+    width: 100%
+    background: #FFFFFF
+    box-shadow: 0px 2px 42px rgba(0, 0, 0, 0.111233)
+    border-radius: 7px
+  &__create
+    max-width: 664px
+    width: 100%
+  &__create h4
+    font-family: $main-font
+    font-size: 22px
+    line-height: 25px
+    color: #282828
