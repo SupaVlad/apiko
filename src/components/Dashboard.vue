@@ -18,8 +18,5 @@ export default {
       posts: "loadedPosts"
     }),
   },
-  created () {
-    //this.$store.dispatch('loadPosts');
-  }
 };
 </script>

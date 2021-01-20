@@ -6,29 +6,20 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    loadedPosts: [
-      // {
-      //   id: 'afajfjadfaadfa323',
-      //   title: 'title',
-      //   description: 'some description',
-      //   price: '222$',
-      // },
-      // {
-      //   id: 'afajfjadfdasdas3',
-      //   title: 'title2',
-      //   description: 'some description2',
-      //   price: '242$',
-      // }
-    ],
+    loadedPosts: [],
     user: {
       loggedIn: false,
       data: null
-    }
+    },
+    isShow: false
   },
 
   getters: {
     user(state){
       return state.user
+    },
+    isShow(state){
+      return state.isShow
     },
     loadedPosts (state) {
       return state.loadedPosts
@@ -56,6 +47,9 @@ export default new Vuex.Store({
     },
     setLoading (state, payload) {
       state.loading = payload
+    },
+    setShow (state, payload) {
+      state.isShow = payload
     },
     createPost (state, payload) {
       state.loadedPosts.push(payload)
@@ -94,10 +88,13 @@ export default new Vuex.Store({
             for (let key in obj) {
               posts.push({
                 id: key,
+                category: obj[key].category,
                 title: obj[key].title,
                 description: obj[key].description,
+                location: obj[key].location,
                 imageUrl: obj[key].imageUrl,
                 price: obj[key].price,
+                isLike: obj[key].isLike,
               })
             }
             commit('setLoadedPosts', posts)
@@ -112,10 +109,12 @@ export default new Vuex.Store({
     },
     createPost ({commit}, payload) {
       const post = {
+        category: payload.category,
         title: payload.title,
         location: payload.location,
         description: payload.description,
         price: payload.price,
+        isLike: payload.isLike,
         // imageUrl: payload.imageUrl
       }
       let imageUrl
@@ -135,7 +134,6 @@ export default new Vuex.Store({
             return firebase.storage().ref().child(imagePath).getDownloadURL()
                 .then(url => {
                   imageUrl = url
-                  console.log('File available at', url)
                   return firebase.database().ref('posts').child(key).update({imageUrl: imageUrl})
                 })
           })

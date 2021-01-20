@@ -43,10 +43,10 @@
             <label for="password" class="auth__form-label">Password</label>
 
             <div class="auth__form-group-inner">
-              <input
+              <VuePassword
                       id="password"
                       type="password"
-                      class="auth__form-input"
+                      class="auth__form-input auth__form-input-pass"
                       name="password"
                       required
                       v-model="form.password"
@@ -69,8 +69,12 @@
 
 <script>
 import firebase from "firebase";
+import VuePassword from 'vue-password';
 
 export default {
+  components: {
+    VuePassword
+  },
   data() {
     return {
       form: {
@@ -92,6 +96,7 @@ export default {
               displayName: this.form.name
             })
             .then(() => {});
+          this.$router.replace({ name: "Home" });
         })
         .catch(err => {
           this.error = err.message;

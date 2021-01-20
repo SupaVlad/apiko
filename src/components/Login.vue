@@ -72,7 +72,6 @@ export default {
         .auth()
         .signInWithEmailAndPassword(this.form.email, this.form.password)
         .then(data => {
-          this.data = data;
           this.$router.replace({ name: "Home" });
         })
         .catch(err => {

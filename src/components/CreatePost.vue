@@ -5,12 +5,27 @@
             <form @submit.prevent="onCreatePost">
 
                 <div class="create__form-group">
+                    <label for="title" class="auth__form-label">Category<span>*</span></label>
+                    <div class="create__form-group-inner">
+                        <select v-model="form.category">
+                            <option>food</option>
+                            <option>clothes</option>
+                            <option>furniture</option>
+                            <option>entertainment</option>
+                            <option>services</option>
+                            <option>other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="create__form-group">
                     <label for="title" class="auth__form-label">Title<span>*</span></label>
                     <div class="create__form-group-inner">
                         <input
                                 name="title"
                                 id="title"
                                 v-model="form.title"
+                                placeholder="For example: Iron man suit"
                                 required
                         />
                     </div>
@@ -23,6 +38,7 @@
                                 name="location"
                                 id="location"
                                 v-model="form.location"
+                                placeholder="For example: Los Angeles, CA"
                                 required
                         />
                     </div>
@@ -35,6 +51,7 @@
                         <input
                                 name="description"
                                 id="description"
+                                placeholder="For example: Iron man suit"
                                 v-model="form.description"
                         />
                     </div>
@@ -42,8 +59,8 @@
 
                 <div class="create__form-group">
                     <label class="auth__form-label">Photos</label>
-                    <div class="create__form-group-inner">
-                        <button @click="onPickFile">Upload Image</button>
+                    <div class="create__form-group-inner create__form-group-inner-add">
+                        <button @click="onPickFile" class="create__form-group-inner-btn"></button>
                         <input
                                 type="file"
                                 style="display: none"
@@ -63,16 +80,18 @@
                         <input
                                 name="price"
                                 id="price"
+                                type="number"
                                 v-model.number="form.price"
+                                placeholder="For example: 22"
                                 required
                         />
                     </div>
                 </div>
 
-                <div class="create__form-group">
+                <div class="create__form-group create__form-group-sub">
                     <button class="create__btn"
                             :disabled="!formIsValid"
-                            type="submit">Create Post</button>
+                            type="submit">SUBMIT</button>
                 </div>
             </form>
         </div>
@@ -84,18 +103,20 @@
         data () {
             return {
                 form: {
+                    category: '',
                     title: '',
                     location: '',
                     description: '',
                     price: '',
-                    image: null
+                    image: null,
+                    isLike: false
                 },
                 imageUrl: '',
             }
         },
         computed: {
             formIsValid () {
-                return !!this.form.title && !!this.form.location && !!this.imageUrl && !!this.form.price
+                return !!this.form.category && !!this.form.title && !!this.form.location && !!this.imageUrl && !!this.form.price
             },
         },
         methods: {

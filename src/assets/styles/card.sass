@@ -4,7 +4,25 @@
   justify-content: center
 .card
   margin-right: 6px
+  margin-bottom: 6px
+  &__like
+    display: flex
+    align-items: center
+    justify-content: center
+    position: absolute
+    right: 4px
+    bottom: 45px
+    height: 30px
+    width: 30px
+    border-radius: 50%
+    background: #ffff
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.163407)
+    cursor: pointer
+  &__like-inner
+    margin-top: 4px
+    margin-left: 2px
   &__inner
+    position: relative
     flex-direction: column
     height: 212px
     width: 209px
@@ -22,15 +40,25 @@
     margin-left: 3px
     margin-top: 3px
   &__name
+    margin-left: 14px
+    margin-top: 6px
     font-family: $main-font
     font-size: 15px
     line-height: 17px
     color: #373738
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
   &__price
+    margin-left: 15px
+    margin-top: 6px
     font-family: $main-font
     font-size: 18px
     line-height: 21px
     color: #101010
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
   &__wrapper
     display: flex
     justify-content: center
@@ -48,3 +76,138 @@
     font-size: 22px
     line-height: 25px
     color: #282828
+  &:nth-child(4n)
+    margin-right: 0
+.search-title-wrapper
+  position: relative
+  padding-left: 52px
+  margin-right: 7px
+  background: #FFFFFF
+  border-radius: 4px
+  height: 48px
+  font-family: $main-font
+  font-size: 15px
+  line-height: 31px
+  color: rgba(123, 123, 123, 0.776523)
+  max-width: 467px
+  width: 100%
+  border: none
+  @media screen and (max-width: 873px)
+    max-width: 90%
+    margin-right: 0
+    margin-bottom: 10px
+    height: 35px
+
+.search-wrapper
+  position: relative
+  display: flex
+  align-items: center
+  margin-left: 2px
+  margin-top: -67px
+  margin-bottom: 33px
+  @media screen and (max-width: 872px)
+    flex-direction: column
+    margin-top: -100px
+    padding: 0 15px
+
+.search-location-wrapper
+  background: #FFFFFF
+  padding-left: 38px
+  border-radius: 4px
+  height: 48px
+  font-family: $main-font
+  font-size: 15px
+  line-height: 31px
+  color: rgba(123, 123, 123, 0.776523)
+  border: none
+  @media screen and (max-width: 873px)
+    max-width: 90%
+    width: 100%
+    padding-left: 52px
+    height: 35px
+
+.search-title-ico
+  position: absolute
+  left: 21px
+  z-index: 99
+  @media screen and (max-width: 873px)
+    left: 32px
+    top: 10px
+
+.search-loc-ico
+  position: absolute
+  right: 299px
+  z-index: 99
+  @media screen and (max-width: 873px)
+    left: 32px
+    top: 56px
+
+.filter-wrapper
+  position: relative
+  display: flex
+  margin-left: 2px
+  padding-left: 13px
+  margin-bottom: 15px
+  align-items: center
+  height: 59px
+  background: #FFFFFF
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.217111)
+  border-radius: 4px
+  @media screen and (max-width: 760px)
+    flex-direction: column
+    height: auto
+
+.filter-price-wrapper
+  display: flex
+  @media screen and (max-width: 760px)
+    margin-bottom: 5px
+
+.filter-category-wrapper
+  display: flex
+  align-items: center
+  max-width: 285px
+  width: 100%
+  margin-right: 23px
+  @media screen and (max-width: 760px)
+    max-width: 92%
+    width: 100%
+    margin-top: 5px
+    margin-bottom: 5px
+
+.filter-category-wrapper select
+  padding-left: 39px
+  height: 35px
+  max-width: 285px
+  width: 100%
+  background: #F9FAFB
+  border: 1px solid #DEDEE0
+  box-sizing: border-box
+  border-radius: 5px
+  @media screen and (max-width: 760px)
+    max-width: 100%
+    width: 100%
+
+.filter-ico
+  position: absolute
+  left: 22px
+  @media screen and (max-width: 760px)
+    left: 42px
+    top: 14px
+  @media screen and (max-width: 410px)
+    left: 35px
+
+.filter-price-wrapper input
+  height: 35px
+  padding: 0
+  padding-left: 9px
+  margin-right: 26px
+  max-width: 143px
+  width: 100%
+  background: #F9FAFB
+  border: 1px solid #DEDEE0
+  box-sizing: border-box
+  border-radius: 5px
+  @media screen and (max-width: 760px)
+    &:nth-child(2n)
+      margin-right: 23px
+
