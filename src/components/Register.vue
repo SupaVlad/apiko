@@ -50,12 +50,32 @@
                       name="password"
                       required
                       v-model="form.password"
+                      ref="password"
               />
             </div>
           </div>
+          <div class="auth__form-group">
+            <label for="password" class="auth__form-label">Password again</label>
+
+            <div class="auth__form-group-inner">
+              <VuePassword
+                      id="repassword"
+                      type="password"
+                      class="auth__form-input auth__form-input-pass"
+                      name="repassword"
+                      required
+                      v-model="form.repassword"
+              />
+            </div>
+          </div>
+          <div class="alert alert-danger" v-if="!(this.form.password === this.form.repassword)">
+
+            Passwords do not match
+
+          </div>
 
           <div class="auth__form-group">
-              <button type="submit" class="auth__btn">Register</button>
+              <button type="submit" class="auth__btn" :disabled="!formIsValid">Register</button>
           </div>
         </form>
       </div>
@@ -80,9 +100,10 @@ export default {
       form: {
         name: "",
         email: "",
-        password: ""
+        password: "",
+        repassword: "",
       },
-      error: null
+      error: null,
     };
   },
   methods: {
@@ -101,7 +122,12 @@ export default {
         .catch(err => {
           this.error = err.message;
         });
-    }
-  }
+    },
+  },
+  computed: {
+    formIsValid () {
+      return (this.form.password === this.form.repassword)
+    },
+  },
 };
 </script>
